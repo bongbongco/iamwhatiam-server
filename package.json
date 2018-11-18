@@ -7,6 +7,7 @@
   "author": "seungyonglee <bongbongco@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/twilio": "^0.0.10",
     "bcrypt": "^3.0.2",
     "class-validator": "^0.9.1",
     "cors": "2.8.4",
@@ -17,6 +18,7 @@
     "merge-graphql-schemas": "1.5.2",
     "morgan": "1.9.0",
     "pg": "^7.6.1",
+    "twilio": "^3.24.0",
     "typeorm": "^0.2.8"
   },
   "devDependencies": {

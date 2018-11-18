@@ -6,5 +6,5 @@ type Place {
     address: String!
     isFav: Boolean!
     createdAt: String!
-    updatedAt: String!
+    updatedAt: String
 }

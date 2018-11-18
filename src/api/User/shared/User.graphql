@@ -4,26 +4,25 @@ type User {
     verifiedEmail: Boolean!
     firstName: String!
     lastName: String!
-    age: Int!
+    age: Int
     password: String
     phoneNumber: String
     verifiedPhoneNumber: Boolean!
-    profilePhoto: String!
-    fullName: String!
-    fbId: String!
+    profilePhoto: String
+    fullName: String
+    fbId: String
     isDriving: Boolean!
     isRiding: Boolean!
     isTaken: Boolean!
-    lastLng: Float!
-    lastLat: Float!
-    lastOrientation: Float!
-    chat: Chat!
+    lastLng: Float
+    lastLat: Float
+    lastOrientation: Float
+    chat: Chat
     messages: [Message]
-    verifications: [Verification]
     ridesAsPassenger: [Ride]
     ridesAsDriver: [Ride]
     createdAt: String!
-    updatedAt: String!
+    updatedAt: String
 }
 
 type Query {
