@@ -1,6 +1,7 @@
 import { Resolvers } from "../../../types/resolvers";
 import { EmailSignUpMutationArgs, EmailSignUpRespose } from "../../../types/graph";
 import User from "../../../entities/User";
+import createJWT from "../../../utils/createJWT";
 
 const resolvers: Resolvers = {
     Mutation: {
@@ -12,17 +13,19 @@ const resolvers: Resolvers = {
             try {
                 const existingUser = await User.findOne({ email });
                 if(existingUser) {
+                    const token = createJWT(existingUser.id)
                     return {
                         ok: false,
                         error: "You should log in instead",
-                        token: null
+                        token
                     }
                 } else {
                     const newUser = await User.create({...args}).save();
+                    const token = createJWT(newUser.id); 
                     return {
                         ok: true,
                         error: null,
-                        token: "Coming soon"
+                        token
                     }
                 }
             } catch(error) {
