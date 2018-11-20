@@ -75,6 +75,17 @@ type FacebookConnectResponse {
   token: String
 }
 
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
+}
+
+type Query {
+  GetMyProfile: GetMyProfileResponse!
+  user: User
+}
+
 type User {
   id: Int!
   email: String
@@ -100,10 +111,6 @@ type User {
   ridesAsDriver: [Ride]
   createdAt: String!
   updatedAt: String
-}
-
-type Query {
-  user: User
 }
 
 type StartPhoneVerificationResponse {
