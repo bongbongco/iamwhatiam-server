@@ -13,11 +13,6 @@ const resolvers: Resolvers = {
             ): Promise<UpdateMyProfileResponse> => {
                 const user: User = req.user;
                 const notNull:any = cleanNullArgs(args);
-                Object.keys(args).forEach(key => {
-                    if(args[key] !== null){
-                        notNull[key] = args[key];
-                    }
-                });
                 try {
                     if(notNull.password !== null) {
                         user.password = notNull.password;
