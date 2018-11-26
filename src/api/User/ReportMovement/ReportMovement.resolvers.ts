@@ -32,4 +32,4 @@ const resolvers: Resolvers = {
     }
 };
 
-export default commn                                         zzz
+export default resolvers;
