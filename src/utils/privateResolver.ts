@@ -1,4 +1,4 @@
-const privateResolver = (resolverFunction) => async (
+const privateResolver = resolverFunction => async (
     parent, 
     args, 
     context, 

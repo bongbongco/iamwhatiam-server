@@ -1,4 +1,4 @@
-export type Resolver = (parent, args, context, info) => any;
+export type Resolver = (parent: any, args: any, context: any, info: any) => any;
 
 export interface Resolvers {
     [key: string]: {
