@@ -1,4 +1,3 @@
-
 import Ride from "../../../entities/Ride";
 import User from "../../../entities/User";
 import { 
@@ -10,19 +9,30 @@ import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
     Mutation: {
-        RequesetRide: privateResolver(async(
+        RequestRide: privateResolver(async(
             _,
             args: RequestRideMutationArgs,
-            {req}): Promise<RequestRideResponse> => {
-                const user: User = req.user;
+            { req, pubSub }
+        ): Promise<RequestRideResponse> => {
+            const user: User = req.user;
+            if (!user.isRiding) {
                 try {
-                    const ride = await Ride.create({...args, passenger: user}).save();
+                    const ride = await Ride.create({
+                        ...args, 
+                        passenger: user
+                    }).save();
+                    pubSub.publish(
+                        "rideRequest", 
+                        { NearbyRideSubscription: ride }
+                    );
+                    user.isRiding = true;
+                    user.save();
 
                     return {
                         ok: true,
                         ride,
                         error: null
-                    }
+                    };
                 } catch(error) {
                     return {
                         ok: false,
@@ -30,7 +40,14 @@ const resolvers: Resolvers = {
                         error: error.message
                     };
                 }
-            })       
+            } else {
+                return {
+                    ok: false,
+                    error: "You can't request two rides",
+                    ride: null
+                };
+            }
+        })       
     }
 };
 
