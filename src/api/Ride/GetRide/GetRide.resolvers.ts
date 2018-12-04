@@ -16,8 +16,6 @@ const resolvers: Resolvers = {
                 const ride = await Ride.findOne({
                     id: args.rideId
                 });
-                user.isRiding = false;
-                user.save();
                 if(ride) {
                     if(ride.passengerId === user.id || ride.driverId === user.id) {
                         return {
