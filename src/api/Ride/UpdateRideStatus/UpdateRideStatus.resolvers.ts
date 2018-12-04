@@ -5,7 +5,7 @@ import {
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
-import Ride from "src/entities/Ride";
+import Ride from "../../../entities/Ride";
 
 const resolvers: Resolvers = {
     Mutation: {
