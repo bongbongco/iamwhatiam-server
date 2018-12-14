@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "debate service",
   "main": "index.js",
-  "repository": "http://github.com/bongbongco/iamwhatiam-connect",
+  "repository": "http://github.com/bongbongco/iamwhatiam-server",
   "author": "seungyonglee <bongbongco@gmail.com>",
   "license": "MIT",
   "dependencies": {

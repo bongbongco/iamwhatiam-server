@@ -2,7 +2,7 @@ import User from "../../../entities/User";
 import { 
     EmailSignInMutationArgs, 
     EmailSignInResponse 
-} from "src/types/graph";
+} from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import createJWT from "../../../utils/createJWT";
 
