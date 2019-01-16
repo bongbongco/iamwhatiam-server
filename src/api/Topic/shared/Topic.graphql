@@ -1,0 +1,10 @@
+type Topic {
+    id: Int!
+    subject: String!
+    content: String!
+    isFav: Boolean!
+    userId: Int!
+    user: User!
+    createdAt: String!
+    updatedAt: String
+}

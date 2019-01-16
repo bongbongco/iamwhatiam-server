@@ -1,0 +1,8 @@
+type DeleteTopicResponse {
+    ok: Boolean!
+    error: String
+}
+
+type Mutation {
+    DeleteTopic(topicId: Int!): DeleteTopicResponse!
+}

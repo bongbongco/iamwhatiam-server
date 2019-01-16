@@ -1,0 +1,12 @@
+type AddTopicResponse {
+    ok: Boolean!
+    error: String
+}
+
+type Mutation {
+    AddTopic(
+        subject:String!
+        content:String!
+        isFav: Boolean!
+    ): AddTopicResponse!
+}

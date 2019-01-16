@@ -1,0 +1,13 @@
+type EditTopicResponse {
+    ok: Boolean!
+    error: String
+}
+
+type Mutation {
+    EditTopic(
+        topicId: Int!
+        subject: String
+        content: String
+        isFav: Boolean
+    ): EditTopicResponse!
+}

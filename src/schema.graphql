@@ -9,6 +9,7 @@ type Query {
   GetMyPlaces: GetMyPlacesResponse!
   GetNearbyRides: GetNearbyRidesResponse!
   GetRide(rideId: Int!): GetRideResponse!
+  GetMyTopics: GetMyTopicsResponse!
   GetMyProfile: GetMyProfileResponse!
   GetNearbyDrivers: GetNearbyDriversResponse!
 }
@@ -33,6 +34,9 @@ type Mutation {
   EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
   RequestRide(pickUpAddress: String!, pickUpLat: Float!, pickUpLng: Float!, dropOffAddress: String!, dropOffLat: Float!, dropOffLng: Float!, price: Float!, distance: String!, duration: String!): RequestRideResponse!
   UpdateRideStatus(rideId: Int!, status: StatusOptions!): UpdateRideStatusResponse!
+  AddTopic(subject: String!, content: String!, isFav: Boolean!): AddTopicResponse!
+  DeleteTopic(topicId: Int!): DeleteTopicResponse!
+  EditTopic(topicId: Int!, subject: String, content: String, isFav: Boolean): EditTopicResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
@@ -152,6 +156,38 @@ enum StatusOptions {
   CANCELED
   REQUESTING
   ONROUTE
+}
+
+type AddTopicResponse {
+  ok: Boolean!
+  error: String
+}
+
+type DeleteTopicResponse {
+  ok: Boolean!
+  error: String
+}
+
+type EditTopicResponse {
+  ok: Boolean!
+  error: String
+}
+
+type GetMyTopicsResponse {
+  ok: Boolean!
+  error: String
+  topics: [Topic]
+}
+
+type Topic {
+  id: Int!
+  subject: String!
+  content: String!
+  isFav: Boolean!
+  userId: Int!
+  user: User!
+  createdAt: String!
+  updatedAt: String
 }
 
 type CompleteEmailVerificationResponse {
