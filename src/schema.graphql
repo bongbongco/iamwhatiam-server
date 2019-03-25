@@ -10,6 +10,7 @@ type Query {
   GetNearbyRides: GetNearbyRidesResponse!
   GetRide(rideId: Int!): GetRideResponse!
   GetMyTopics: GetMyTopicsResponse!
+  GetTopic(topicId: Int!): GetTopicResponse!
   GetMyProfile: GetMyProfileResponse!
   GetNearbyDrivers: GetNearbyDriversResponse!
 }
@@ -177,6 +178,12 @@ type GetMyTopicsResponse {
   ok: Boolean!
   error: String
   topics: [Topic]
+}
+
+type GetTopicResponse {
+  ok: Boolean!
+  error: String
+  topic: Topic
 }
 
 type Topic {

@@ -1,0 +1,11 @@
+type GetTopicResponse {
+    ok: Boolean!
+    error: String
+    topic: Topic
+}
+
+type Query {
+    GetTopic(
+        topicId: Int!
+    ): GetTopicResponse!
+}
